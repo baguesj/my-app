@@ -1,4 +1,4 @@
-    <style>
+    
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Trebuchet MS", sans-serif; -webkit-tap-highlight-color: transparent; }
         body, html { min-height: 100vh; height: 100%; background: linear-gradient(#F1F3FF, #F1F3FF); }
 
@@ -484,4 +484,4 @@
             .product-rating { font-size: 0.5em; }
             .product-shipping-info { font-size: 0.65em; }
         }
-    </style>
+    
