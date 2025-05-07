@@ -1,4 +1,4 @@
-    
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Trebuchet MS", sans-serif; -webkit-tap-highlight-color: transparent; }
         body, html { min-height: 100vh; height: 100%; background: linear-gradient(#F1F3FF, #F1F3FF); }
 
@@ -104,7 +104,7 @@
         .sidebar {
             position: fixed; top: 0; left: -270px;
             z-index: 1003; width: 270px; height: 100vh;
-            background: #CBD4FF;
+            background: #F1F3FF;
             transition: left 0.4s ease, width 0.4s ease;
         }
         .sidebar.collapsed { width: 85px; left: 0 !important; }
@@ -245,7 +245,7 @@
         .sidebar-nav .nav-item .nav-link {
             color: #404040; display: flex; gap: 12px; white-space: nowrap;
             border-radius: 8px; padding: 10px 15px; align-items: center;
-            text-decoration: none; border: 1px solid #CBD4FF; transition: 0.4s ease;
+            text-decoration: none; border: 1px solid #F1F3FF; transition: 0.4s ease;
         }
         .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) { color: #fff; background: #151A2D; }
         .sidebar .nav-link .nav-label { transition: opacity 0.3s ease; }
@@ -253,7 +253,7 @@
         .sidebar.collapsed .nav-link .dropdown-icon { transition: opacity 0.3s 0s ease; }
         .sidebar-nav .secondary-nav {
             position: absolute; bottom: 10px; width: 100%;
-            background: #CBD4FF; padding-bottom: 10px;
+            background: #F1F3FF; padding-bottom: 10px;
         }
         .sidebar-nav .nav-item { position: relative; }
         .sidebar-nav .dropdown-container .dropdown-icon { margin: 0 -4px 0 auto; transition: transform 0.4s ease, opacity 0.3s 0.2s ease; }
@@ -483,5 +483,4 @@
             .product-price { font-size: 0.8em; }
             .product-rating { font-size: 0.5em; }
             .product-shipping-info { font-size: 0.65em; }
-        }
-    
+   }
