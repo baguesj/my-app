@@ -1,11 +1,11 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Trebuchet MS", sans-serif; -webkit-tap-highlight-color: transparent; }
-        body, html { min-height: 100vh; height: 100%; background: linear-gradient(#F1F3FF, #F1F3FF); }
+        body, html { min-height: 100vh; height: 100%; background: linear-gradient(#F1F3FF, #cce6ff); }
 
         /* Floating Header Styles -- MULAI CSS HEADER */
         .floating-header {
             position: fixed; top: 0; left: 0; width: 100%; height: 60px;
-            background-color: #F1F3FF; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #f1f3ff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1002; display: flex; align-items: center;
             padding: 0 10px; /* Padding kiri kanan header */
             transition: margin-left 0.4s ease;
@@ -38,14 +38,15 @@
         .header-search form {
             display: flex;
             width: 100%;
+            margin-left: -20px;
            
             max-width: 400px; /* Batasi lebar maksimum form pencarian */
         }
         .header-search input[type="search"] {
-            flex-grow: 1; padding: 8px 12px; border: 1px solid #ddd;
-            border-radius: 8px 0 0 8px; outline: none; font-size: 0.9em;
+            flex-grow: 1; padding: 8px 12px; border: 2px solid #e6e6e6;
+            border-radius: 8px ; outline: none; font-size: 0.9em;
             min-width: 80px; /* Min width untuk input agar tidak terlalu penyet */
-            background-color: #f2f2f2;
+            background-color: #f1f7ff;
             font-family: "Trebuchet MS", sans-serif;
         }
         .header-search button[type="submit"] {
@@ -104,7 +105,7 @@
         .sidebar {
             position: fixed; top: 0; left: -270px;
             z-index: 1003; width: 270px; height: 100vh;
-            background: #F1F3FF;
+            background: #f1f3ff;
             transition: left 0.4s ease, width 0.4s ease;
         }
         .sidebar.collapsed { width: 85px; left: 0 !important; }
@@ -193,7 +194,7 @@
             flex-grow: 1; 
         }
         .saldo-topup-icon {
-            color: #1070FF; 
+            color: #336699; 
             font-size: 0.9em; 
             text-decoration: none;
             margin-left: 5px; 
@@ -247,13 +248,13 @@
             border-radius: 8px; padding: 10px 15px; align-items: center;
             text-decoration: none; border: 1px solid #F1F3FF; transition: 0.4s ease;
         }
-        .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) { color: #fff; background: #151A2D; }
+        .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) { color: #fff; background: #80bfff; }
         .sidebar .nav-link .nav-label { transition: opacity 0.3s ease; }
         .sidebar.collapsed .nav-link :where(.nav-label, .dropdown-icon) { opacity: 0; pointer-events: none; }
-        .sidebar.collapsed .nav-link .dropdown-icon { transition: opacity 0.3s 0s ease; }
+        .sidebar.collapsed .nav-link .dropdown-icon { transition: opacity 0.8s 0s ease; }
         .sidebar-nav .secondary-nav {
             position: absolute; bottom: 10px; width: 100%;
-            background: #F1F3FF; padding-bottom: 10px;
+            background: #f1f3ff; padding-bottom: 10px;
         }
         .sidebar-nav .nav-item { position: relative; }
         .sidebar-nav .dropdown-container .dropdown-icon { margin: 0 -4px 0 auto; transition: transform 0.4s ease, opacity 0.3s 0.2s ease; }
@@ -287,14 +288,14 @@
             display: block; width: 100%; height: auto; object-fit: cover; border-radius: 0px; box-shadow: none;
         }
         .dot-container {
-            text-align:center; padding: 10px 0 0 0; /* Adjusted padding */
+            text-align:center; padding: 10px 0 0 0; margin-top: -20px;/* Adjusted padding */
         }
         .dot {
             height: 6px; width: 6px; margin: 0 3px; background-color: #ccc;
             border-radius: 50%; display: inline-block;
             transition: background-color 0.6s ease, width 0.3s ease;
         }
-        .dot.active { background-color: #336699; width:8px; }
+        .dot.active { background-color: #336699; width:15px;border-radius:50px; }
         .fade { animation-name: fade; animation-duration: 1.5s; }
         @keyframes fade { from {opacity: .4} to {opacity: 1} }
 
