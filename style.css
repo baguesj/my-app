@@ -292,58 +292,38 @@ body, html {
     .sidebar.open-mobile .edit-photo-icon-link { display: flex; opacity: 1; transform: scale(1); }
 }
 
-/* ... (CSS Anda yang lain di atas) ... */
-
 /* Konten Utama */
 .content-pusher {
-    padding-top: 75px;
-    padding-bottom: 20px;
+    padding-top: 75px; 
+    padding-bottom: 20px; 
     transition: margin-left 0.4s ease;
-    margin-left: 0;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 2px solid red !important;
+    margin-left: 0; 
+    padding-left: 15px; /* Padding horizontal global untuk konten */
+    padding-right: 15px; /* Padding horizontal global untuk konten */
 }
 
-/* Slideshow (Banner) */
+/* Slideshow (Banner) - Mengikuti padding .content-pusher */
 .slideshow-container {
-    width: 100%;
-
-    position: relative;
-    margin-bottom: 5px; 
-    overflow: hidden;
-border: 2px solid blue !important;
-    background-color: rgba(0, 0, 255, 0.1) !important; /* Warna latar transparan */
+    width: 100%; 
+    height: 50%;
+    position: relative; 
+    margin-bottom:5px; 
+    overflow: hidden; 
 }
-.mySlides {
-    border: 2px solid green !important;
-    background-color: rgba(0, 255, 0, 0.1) !important;
-}
-
 .mySlides img {
-    display: block; /* Sudah benar */
-    width: 100%;    /* Sudah benar */
-    max-height: 240px;
-    object-fit: cover; 
-    border-radius: 10px;
-    border: 2px solid orange !important;
+     display: block;
+    width: 100%; 
+    max-height: 240px; 
+    border-radius: 10px; /* Opsional: samakan dengan .content-block */
 }
-.content-block#category-section { /* Asumsi blok pertama setelah slideshow punya ID category-section */
-    border: 2px solid purple !important;
-    background-color: rgba(128, 0, 128, 0.1) !important;
-}
-
 .dot-container {
-    position: absolute;   /* Cukup satu deklarasi position */
-    bottom: 8px;          /* Posisikan dari bawah slideshow-container */
-    left: 0;
-    right: 0;
-    text-align: center;
-    /* padding: 8px 0 0 0; */ /* Mungkin tidak perlu jika sudah bottom */
-    /* margin-top: -15px !important; */ /* Hapus ini, karena sudah diatur via bottom */
+     position: absolute;
+    text-align: center; 
+    padding: 8px 0 0 0; 
+    margin-top: -15px ! important; /* COBA NILAI YANG SANGAT EKSTREM DAN !important */
+    position: relative; 
     z-index: 10;
 }
-
 .dot {
     height: 5px; width: 5px; margin: 0 4px; background-color: rgba(255,255,255,0.6);
     border-radius: 50%; display: inline-block;
@@ -357,46 +337,44 @@ border: 2px solid blue !important;
 
 /* Styling untuk Wrapper Marketplace (TANPA .content-block) */
 #marketplace-section-wrapper {
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin-top: 0; 
+    margin-bottom: 15px; 
+    /* Padding horizontal mengikuti .content-pusher */
 }
 #marketplace-section-wrapper .section-title-promo {
-    padding-left: 0;
+    padding-left: 0; 
     padding-right: 0;
-    margin-left: 0;
+    margin-left: 0; 
     margin-right: 0;
 }
 #marketplace-section-wrapper .marketplace-scroll-wrapper {
-    margin-left: 0;
+    margin-left: 0; 
     margin-right: 0;
 }
 
-/* Blok Konten Halaman */
+/* Blok Konten Halaman (untuk KATEGORI, JASA POPULER, GRID MENU LAYANAN LAINNYA) */
 .content-block {
-    background-color: #ffffff;
-    margin-left: 0;
-    margin-right: 0;
-    /* margin-top: 10px; */ /* Akan di-override oleh aturan di bawah untuk yang pertama */
-    margin-bottom: 15px;
+    background-color: #ffffff; 
+    margin-left: 0; /* Mengikuti padding .content-pusher */
+    margin-right: 0; /* Mengikuti padding .content-pusher */
+    margin-top: 10px; 
+    margin-bottom: 15px; 
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 12px; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
 
 /* Urutan Jarak antar Blok Konten Utama */
-.content-pusher > .slideshow-container + .content-block,
-.content-pusher > .content-block:first-of-type {
-    margin-top: 0 !important; /* Tambahkan !important untuk testing, jika berhasil, coba cari cara lain yang lebih baik */
+.content-pusher > .slideshow-container + .content-block, 
+.content-pusher > .content-block:first-of-type { 
+    margin-top: 0; 
 }
-
-.content-pusher > .content-block + .content-block, /* Untuk jarak antar content-block biasa */
-.content-pusher > .content-block + #marketplace-section-wrapper,
+.content-pusher > .content-block + #marketplace-section-wrapper {
+    margin-top: 15px; 
+}
 .content-pusher > #marketplace-section-wrapper + .content-block {
-    margin-top: 15px; /* Jarak standar antar blok */
+    margin-top: 15px; 
 }
-
-
-/* ... (Sisa CSS Anda) ... */
 
 
 .section-title {
