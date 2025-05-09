@@ -310,7 +310,7 @@ body, html {
     width: 100%;
     height: 200px; /* Atur tinggi kontainer secara eksplisit */
     position: relative;
-    margin-bottom:5px;
+    margin-bottom:10px;
     overflow: hidden;
 }
 .mySlides img {
@@ -321,14 +321,14 @@ body, html {
     border-radius: 10px;
 }
 .dot-container {
-    position: absolute;   /* Cukup satu deklarasi position */
-    bottom: 8px;          /* Posisikan dari bawah slideshow-container */
+    position: center;   /* Cukup satu deklarasi position */
+    bottom: 8px;    
+    margin-top: 3px !important;
+    /* Posisikan dari bawah slideshow-container */
     left: 0;
     right: 0;
     text-align: center;
-    /* padding: 8px 0 0 0; */ /* Mungkin tidak perlu jika sudah bottom */
-    /* margin-top: -15px !important; */ /* Hapus ini, karena sudah diatur via bottom */
-    z-index: 10;
+     
 }
 
 .dot {
