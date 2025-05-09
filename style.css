@@ -307,21 +307,23 @@ body, html {
 .slideshow-container {
     width: 100%; 
     position: relative; 
-    margin-bottom: 15px; 
+    margin-bottom: 10px; 
     overflow: hidden; 
 }
 .mySlides img {
-    display: block; 
+     display: block;
     width: 100%; 
-    height: auto; 
-    max-height: 220px; 
+    max-height: 240px; 
     object-fit: cover; 
     border-radius: 8px; /* Opsional: samakan dengan .content-block */
 }
 .dot-container {
-    text-align:center; padding: 8px 0 0 0; 
-    margin-top: -25px; 
-    position: relative; z-index: 1;
+     position: absolute;
+    text-align: center; 
+    padding: 8px 0 0 0; 
+    margin-top: -25px ! important; /* COBA NILAI YANG SANGAT EKSTREM DAN !important */
+    position: relative; 
+    z-index: 10;
 }
 .dot {
     height: 7px; width: 7px; margin: 0 4px; background-color: rgba(255,255,255,0.6);
