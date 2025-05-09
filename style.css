@@ -358,7 +358,7 @@ body, html {
     background-color: #ffffff; 
     margin-left: 0; /* Mengikuti padding .content-pusher */
     margin-right: 0; /* Mengikuti padding .content-pusher */
-    margin-top: 10px; 
+    margin-top: 1px; 
     margin-bottom: 15px; 
     padding: 15px;
     border-radius: 12px; 
