@@ -174,6 +174,7 @@
         /* Optional: Tambahkan margin bawah ke foto agar ada jarak eksplisit dengan info box */
         .sidebar-header .header-logo-sidebar {
             margin-bottom: 10px; /* Sesuaikan dengan gap di parent jika ada */
+            position: relative; /* Needed for positioning the edit icon */
         }
 
         .sidebar-header .header-logo-sidebar img {
@@ -186,11 +187,48 @@
             width: 36px; height: 36px;
         }
 
+        /* Style for the edit photo icon */
+        .edit-photo-icon-link {
+            position: absolute;
+            bottom: 2px; /* Adjust position relative to image bottom */
+            right: 2px; /* Adjust position relative to image right */
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+            border-radius: 50%; /* Make it circular */
+            padding: 3px; /* Padding inside the circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10; /* Ensure it's above the image */
+            color: #333; /* Icon color */
+            font-size: 9px; /* Size of the Font Awesome icon */
+            text-decoration: none; /* Remove underline */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+            transform: scale(1); /* Initial scale */
+        }
+        .edit-photo-icon-link:hover {
+             background-color: rgba(255, 255, 255, 0.95);
+             border-color: rgba(0, 0, 0, 0.2);
+        }
+         .edit-photo-icon-link i {
+            font-size: 9px; /* Explicitly size the Font Awesome icon */
+         }
+
+
+        /* Hide the edit icon when the sidebar is collapsed */
+        .sidebar.collapsed .edit-photo-icon-link {
+            opacity: 0;
+            pointer-events: none; /* Make it not clickable */
+            display: none; /* Ensure it doesn't affect layout */
+            transform: scale(0.8); /* Shrink slightly on hide */
+        }
+
+
         .sidebar-user-info-bordered {
-            border: 1px solid #a0aec0;
+            border: 2px solid #f1f1f1;
             border-radius: 8px;
             padding: 6px 8px;
-            background-color: #ffffff; /* Ubah background-color ke warna solid putih */
+            background-color: #cce6ff; /* Ubah background-color ke warna solid putih */
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Tambahkan shadow agar terlihat terpisah */
             flex-grow: 0; /* Hindari flex-grow agar lebarnya sesuai konten atau 100% */
             overflow: hidden;
@@ -208,15 +246,19 @@
             opacity: 1;
             width: 100%;
             overflow: hidden;
-            transition: opacity 0.2s 0.1s ease, width 0.3s ease;
+            /* Adjust transition for opacity and potentially height */
+            transition: opacity 0.2s 0.1s ease, height 0.3s ease, width 0.3s ease;
         }
         .sidebar.collapsed .sidebar-profile-details {
             opacity: 0;
             pointer-events: none;
             width: 0;
+            height: 0; /* Collapse height */
         }
         .sidebar-profile-username,
-        .sidebar-profile-email {
+        .sidebar-profile-email,
+        .sidebar-profile-hp /* Added HP class here */
+        {
             color: #151A2D;
             white-space: nowrap;
             overflow: hidden;
@@ -227,7 +269,9 @@
             font-weight: 600;
             font-size: 0.85em;
         }
-        .sidebar-profile-email {
+        .sidebar-profile-email,
+        .sidebar-profile-hp /* Style for HP */
+         {
             font-size: 0.7em;
             color: #303030;
         }
@@ -242,12 +286,12 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 0.7em;
-            font-weight: 500;
+            font-size: 0.8em;
+            font-weight: 650;
             flex-grow: 1;
         }
         .saldo-topup-icon {
-            color: #336699;
+            color: #fff;
             font-size: 0.9em;
             text-decoration: none;
             margin-left: 5px;
@@ -274,8 +318,27 @@
 
 
         @media (min-width: 769px) {
-            .sidebar:not(.collapsed) .sidebar-close-button { display: block; }
-            .sidebar.collapsed .sidebar-close-button { display: none !important; }
+            .sidebar-toggler-header { display: block !important; }
+            .sidebar-menu-button { display: none !important; }
+
+            /* Ensure desktop sidebar header profile is laid out correctly */
+             .sidebar .sidebar-header {
+                flex-direction: column; /* Keep column layout */
+                align-items: center; /* Center profile info and close button vertically */
+                justify-content: flex-start; /* Align items to the top */
+                padding: 15px; /* Keep 15px padding */
+                padding-bottom: 20px;
+                gap: 15px; /* Gap between profile wrapper and close button */
+                 height: auto; /* Allow height to adjust */
+             }
+             .sidebar .sidebar-close-button {
+                 position: absolute; /* Keep absolute positioning on desktop */
+                 top: 15px; right: 15px;
+             }
+             /* Ensure edit icon is visible on desktop when not collapsed */
+             .sidebar:not(.collapsed) .edit-photo-icon-link {
+                  display: flex; /* Ensure it is shown */
+             }
         }
         @media (max-width: 768px) {
              /* Adjustments for mobile sidebar header */
@@ -300,10 +363,18 @@
                 opacity: 1;
                 width: 100%; /* Ensure takes full width */
                 display: block;
+                height: auto; /* Allow height to adjust */
             }
              /* Profile wrapper takes full width minus header padding */
              .profile-info-wrapper {
                 width: 100%; /* Should take 100% of header's inner width */
+             }
+            /* Ensure edit icon is visible when mobile sidebar is open */
+             .sidebar.open-mobile .edit-photo-icon-link {
+                  display: flex; /* Ensure it is shown */
+                  opacity: 1;
+                  pointer-events: auto;
+                  transform: scale(1);
              }
         }
 
