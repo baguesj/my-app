@@ -323,7 +323,7 @@ body, html {
 .dot-container {
     position: center;   /* Cukup satu deklarasi position */
     bottom: 8px;    
-    margin-top: 3px !important;
+    margin-top: -2px !important;
     /* Posisikan dari bawah slideshow-container */
     left: 0;
     right: 0;
