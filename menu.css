@@ -1,0 +1,166 @@
+
+        .furnishing-container h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        /* --- Grid Section (Top 6 Items) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-item { /* This is an <a> tag */
+            border-radius: 8px;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            position: relative; /* Needed for absolute positioning of .new-label and image-wrapper if used that way */
+            overflow: hidden;
+            min-height: 90px; 
+            display: flex;
+            align-items: center; /* Vertically center the direct children (image-wrapper and item-text-content) */
+            gap: 10px;
+        }
+
+        /* NEW: Wrapper for the image to control its alignment independently */
+        .grid-item-image-wrapper {
+            display: flex; /* Make it a flex container */
+            align-items: flex-end; /* Align the image to the bottom of this wrapper */
+            height: 100%; /* Take full height of the parent's content area if needed, or fixed height */
+            flex-shrink: 0; /* Prevent shrinking */
+             /* You might need to give this wrapper a fixed height if .grid-item height is not fixed,
+                or ensure .grid-item has enough height for the image to be at the bottom.
+                For simplicity, let's assume .grid-item min-height is sufficient. */
+        }
+
+        .grid-item-image {
+            width: 40px;
+            height: 30px;
+            object-fit: contain;
+            /* margin-bottom: 0; /* The wrapper handles bottom alignment */
+        }
+        
+        .item-text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center text within its own block */
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .grid-item .item-title {
+            margin: 0;
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        /* Specific colors and text colors for grid items */
+        .sofa { background-color: #00a9b7; }
+        .interior { background-color: #ffc107; color: #333; }
+        .interior .item-title { color: #333; }
+        .beli-rumah { background-color: #f46060; }
+        .aksesoris { background-color: #00a9b7; }
+        .business { background-color: #00a9b7; }
+        .showroom { background-color: #a0e6ff; color: #333; }
+        .showroom .item-title { color: #333; }
+
+        .new-label {
+            position: absolute;
+            top: 10px; 
+            right: -30px; 
+            background-color: #ffeb3b;
+            color: #d32f2f;
+            padding: 4px 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            transform: rotate(45deg);
+            transform-origin: 50% 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+            width: 90px;
+            text-align: center;
+        }
+
+        /* --- Media Queries for Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .furnishing-container {
+                padding: 15px;
+                margin: 15px auto;
+            }
+            .furnishing-container h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .grid-container {
+                 grid-template-columns: repeat(3, 1fr);
+                 gap: 10px;
+            }
+            .grid-item {
+                padding: 10px;
+                min-height: 75px; /* Adjusted */
+                gap: 8px;
+            }
+            .grid-item-image {
+                width: 30px; 
+                height: 30px;
+            }
+            .item-text-content {
+                /* No specific changes needed here if parent handles alignment */
+            }
+            .grid-item .item-title {
+                font-size: 0.75em; 
+                line-height: 1.15;
+            }
+             .new-label {
+                 top: 6px; right: -22px; padding: 3px 15px; font-size: 0.6em; width: 75px;
+             }
+        }
+
+        @media (max-width: 480px) {
+            .furnishing-container { padding: 10px; margin: 10px auto; }
+            .furnishing-container h1 { font-size: 1.5em; margin-bottom: 10px; }
+            .grid-container {
+                 gap: 6px;
+            }
+            .grid-item { 
+                padding: 8px; 
+                min-height: 65px; /* Adjusted */
+                gap: 6px;
+            } 
+            .grid-item-image {
+                width: 26px;
+                height: 26px;
+            }
+            .grid-item .item-title { 
+                font-size: 0.65em; 
+                line-height: 1.1;
+            }
+            .new-label { 
+                top: 5px; right: -18px; padding: 2px 12px; font-size: 0.5em; width: 65px; 
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .grid-item { 
+                padding: 6px; 
+                min-height: 60px; /* Adjusted */
+                gap: 5px;
+            }
+            .grid-item-image {
+                width: 22px;
+                height: 22px;
+            }
+            .grid-item .item-title { 
+                font-size: 0.6em;
+                line-height: 1;
+            }
+            .new-label { 
+                font-size: 0.45em; padding: 2px 10px; right: -15px; top: 3px; width: 60px; 
+            }
+        }
