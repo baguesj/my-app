@@ -173,13 +173,13 @@
 
         /* Optional: Tambahkan margin bawah ke foto agar ada jarak eksplisit dengan info box */
         .sidebar-header .header-logo-sidebar {
-            margin-bottom: 10px; /* Sesuaikan dengan gap di parent jika ada */
+            margin-bottom: 6px; /* Sesuaikan dengan gap di parent jika ada */
             position: relative; /* Needed for positioning the edit icon */
         }
 
         .sidebar-header .header-logo-sidebar img {
-            width: 45px; height: 45px; display: block;
-            object-fit: cover; border-radius: 50%;
+            width: 55px; height: 55px; display: block;
+            object-fit: cover; border-radius: 12%;
             transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease;
             flex-shrink: 0;
         }
@@ -228,7 +228,7 @@
             border: 2px solid #f1f1f1;
             border-radius: 8px;
             padding: 6px 8px;
-            background-color: #cce6ff; /* Ubah background-color ke warna solid putih */
+            background-color:rgb(112, 148, 219)	; /* Ubah background-color ke warna solid putih */
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Tambahkan shadow agar terlihat terpisah */
             flex-grow: 0; /* Hindari flex-grow agar lebarnya sesuai konten atau 100% */
             overflow: hidden;
@@ -259,7 +259,7 @@
         .sidebar-profile-email,
         .sidebar-profile-hp /* Added HP class here */
         {
-            color: #151A2D;
+            color: #fff;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -286,7 +286,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 0.8em;
+            font-size: 0.9em;
             font-weight: 650;
             flex-grow: 1;
         }
