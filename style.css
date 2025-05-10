@@ -139,7 +139,7 @@ body, html {
 .sidebar-user-info-bordered {
     border: 2px solid #e0e0e0; 
     border-radius: 8px; padding: 6px 8px;
-    background-color: #75a3a3; 
+    background-color: #6BB9F7; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     overflow: hidden; width: 100%;
     transition: opacity 0.2s ease, height 0.3s ease, display 0s 0.3s; 
@@ -157,18 +157,18 @@ body, html {
     opacity: 0; pointer-events: none; width: 0; height: 0;
 }
 .sidebar-profile-username, .sidebar-profile-email {
-    color: #ccffff; 
+    color: #fff; 
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     max-width: 100%;
 }
 .sidebar-profile-username { font-weight: 600; font-size: 0.9em; margin-bottom: 2px; }
-.sidebar-profile-email { font-size: 0.75em; color: #555; margin-bottom: 4px; }
+.sidebar-profile-email { font-size: 0.75em; color: #fff; margin-bottom: 4px; }
 .sidebar-profile-saldo-container {
     display: flex; align-items: center; justify-content: space-between;
     max-width: 100%; margin-bottom: 4px;
 }
 .sidebar-profile-saldo {
-    color: #b3e6ff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     font-size: 0.85em; font-weight: 600; flex-grow: 1;
 }
 .saldo-topup-icon {
