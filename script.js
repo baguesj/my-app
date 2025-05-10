@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sidebarMenuButtonMobile.style.display = 'flex';
             document.querySelectorAll(".sidebar .dropdown-menu").forEach(menu => menu.style.height = '0px');
             closeAllDropdowns();
-            searchInput.placeholder = isVerySmallMobile ? "Cari Material" : "Cari kebutuhanmu...";
+            searchInput.placeholder = isVerySmallMobile ? "Cari Produk Bangunan" : "Cari kebutuhanmu...";
         } else {
             sidebarElement.classList.remove("open-mobile");
             // Default ke expanded di desktop, kecuali jika ada preferensi lain (misal dari localStorage)
