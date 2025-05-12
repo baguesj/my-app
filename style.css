@@ -716,7 +716,7 @@ body, html {
 
 /* Aturan yang lebih spesifik untuk pesan di dalam modal body */
 .custom-modal-content .modal-body .modal-message {
-    font-size: 0.7em;
+    font-size: 0.8em;
     color: #555;
     margin: 0;
     line-height: 1em;
