@@ -82,7 +82,7 @@ body, html {
 .sidebar {
     position: fixed; top: 0; left: -270px;
     z-index: 1003; width: 270px; height: 100vh;
-    background: linear-gradient(#F1F3FF, #e0ebeb);
+    background: #85adad;
     transition: left 0.4s ease, width 0.4s ease;
     display: flex;
     flex-direction: column;
@@ -157,7 +157,7 @@ body, html {
 .sidebar-user-info-bordered {
     border: 3px solid #e6e6e6;
     border-radius: 8px; padding: 6px 8px;
-    background-color: #85adad;
+    background-color: #f8f8ff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     overflow: hidden; width: 100%;
     transition: opacity 0.2s ease, height 0.3s ease, display 0s 0.3s;
@@ -175,29 +175,29 @@ body, html {
     opacity: 0; pointer-events: none; width: 0; height: 0;
 }
 .sidebar-profile-username, .sidebar-profile-email {
-    color: #fff;
+    color: #85adad;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     max-width: 100%;
 }
 .sidebar-profile-username { font-weight: 600; font-size: 0.9em; margin-bottom: 2px; }
-.sidebar-profile-email { font-size: 0.75em; color: #fff; margin-bottom: 4px; }
+.sidebar-profile-email { font-size: 0.75em; color: #404040; margin-bottom: 4px; }
 .sidebar-profile-saldo-container {
     display: flex; align-items: center; justify-content: space-between;
     max-width: 100%; margin-bottom: 4px;
 }
 .sidebar-profile-saldo {
-    color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    color: #404040; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     font-size: 0.85em; font-weight: 600; flex-grow: 1;
 }
 .saldo-topup-icon {
-    color: #fff; font-size: 1em;
+    color: #85adad; font-size: 1em;
     text-decoration: none; margin-left: 8px; cursor: pointer;
     flex-shrink: 0; display: flex; align-items: center;
 }
-.saldo-topup-icon:hover { color: #0056b3; }
+.saldo-topup-icon:hover { color: #404040; }
 
 .sidebar-close-button {
-    background: none; border: none; color: #151A2D;
+    background: none; border: none; color: #fff;
     font-size: 1.6rem; cursor: pointer; padding: 5px;
     flex-shrink: 0; position: absolute;
     top: 15px; right: 15px; display: none;
@@ -231,13 +231,13 @@ body, html {
     padding-top: 10px;
 }
 .sidebar-nav .nav-item .nav-link {
-    color: #404040; display: flex; gap: 12px; white-space: nowrap;
+    color: #fff; display: flex; gap: 12px; white-space: nowrap;
     border-radius: 8px; padding: 10px 15px; align-items: center;
     text-decoration: none; border: 1px solid transparent;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
-    color: #fff; background: #75a3a3; border-color: #fff;
+    color: #404040; background: #f8f8ff; border-color: #e6e6e6;
 }
 .sidebar .nav-link .nav-label { transition: opacity 0.3s ease, transform 0.3s ease; }
 .sidebar.collapsed .nav-link .nav-label { opacity: 0; pointer-events: none; transform: translateX(-10px); }
@@ -631,4 +631,145 @@ body, html {
     }
     .card24 img { height: 80px; flex-shrink: 0;} /* Ensure image height is fixed */
     .card24 div { font-size: 0.75em; flex-grow: 1;} /* Text can grow */
+}
+/* --- Gaya Modal Konfirmasi Kustom --- */
+.custom-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap semi-transparan */
+    display: flex; /* Gunakan flexbox untuk memposisikan konten di tengah */
+    justify-content: center; /* Rata tengah horizontal */
+    align-items: center; /* Rata tengah vertikal */
+    z-index: 10000; /* Pastikan berada di paling atas */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.custom-modal-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-modal-content {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 350px; /* Lebar maksimum modal */
+    width: 170%; /* Lebar responsif */
+    text-align: center;
+    transform: scale(0.9); /* Mulai sedikit lebih kecil */
+    transition: transform 0.3s ease;
+}
+
+.custom-modal-backdrop.show .custom-modal-content {
+    transform: scale(1); /* Membesar saat ditampilkan */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-size: 1.4em;
+    font-weight: 600; /* Judul dibuat tebal */
+    color: #404040;
+    margin: 0;
+    flex-grow: 1; /* Biarkan judul mengambil sisa ruang */
+    text-align: left; /* Rata kiri judul */
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: #777;
+}
+
+/* --- Gaya Modal Konfirmasi Kustom --- */
+/* ... (aturan lain di atas tetap sama) ... */
+
+
+.modal-body {
+    margin-bottom: 5px;
+    text-align: left; /* Rata kiri pesan (penting agar teks wrap dari kiri) */
+    /* Pastikan modal-body cukup lebar untuk pesan (sesuai dengan modal-content) */
+    /* display: block; <-- Biasanya tidak perlu untuk div, tapi bisa ditambahkan jika curiga */
+    /* width: auto; <-- Default, tapi bisa ditambahkan jika curiga */
+}
+
+/* Aturan yang lebih spesifik untuk pesan di dalam modal body */
+.custom-modal-content .modal-body .modal-message {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left; /* Ulangi text-align di sini untuk kepastian */
+margin-bottom: 20px;
+    /* --- Properti untuk memastikan teks wrap --- */
+    display: block; /* Pastikan elemen berperilaku sebagai blok */
+    white-space: normal;  /* Memastikan teks wrap di spasi */
+    word-wrap: break-word; /* Properti lama (fallback) untuk memecah kata panjang */
+    overflow-wrap: break-word; /* Properti standar baru untuk memecah kata panjang */
+    /* --- Akhir Properti Wrap --- */
+
+    /* Pastikan tidak ada batasan tinggi atau overflow yang tersembunyi */
+    height: auto; /* Tinggi otomatis */
+    overflow: visible; /* Konten berlebih harus terlihat (tidak tersembunyi) */
+    /* max-width: 100%; */ /* Default untuk block element, tapi bisa ditambahkan jika curiga */
+}
+
+/* ... (aturan modal-footer, modal-button, dll. di bawah tetap sama) ... */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end; /* Posisikan tombol ke kanan */
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.modal-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.modal-cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.modal-cancel:hover {
+    background-color: #d5d5d5;
+}
+
+.modal-ok {
+    background-color: #85adad;
+    color: #fff;
+}
+
+.modal-ok:hover {
+    background-color: #404040; /* Koreksi warna hover agar lebih gelap */
+}
+
+/* Pastikan judul di modal tebal, menimpa gaya p tag umum jika perlu */
+.custom-modal-content .modal-title {
+    font-weight: bold;
 }
