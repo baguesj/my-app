@@ -1,0 +1,413 @@
+
+        /* Import font dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* --- Gaya Header Awal (Tidak Sticky) --- */
+        .sticky-header {
+            /* position: sticky dan top dihapus, akan dihandle JS */
+            /* position: relative; */
+            z-index: 1000; /* Pastikan di atas konten lain */
+            background-color: #85ADAD;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px; /* Padding di sekitar konten header */
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+            transition: position 0s, top 0s, left 0s, width 0s; /* Transisi 0s agar perubahan fixed/static cepat */
+        }
+
+        /* --- Gaya Header Saat Fixed (Sticky Effect) --- */
+        .sticky-header.is-fixed {
+            position: fixed; /* Buat elemen ini fixed */
+            top: 0; /* Tetapkan di bagian paling atas viewport */
+            left: 0; /* Tetapkan di bagian paling kiri viewport */
+            width: 100%; /* Pastikan lebar penuh viewport */
+            /* z-index sudah diatur di atas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Bayangan sedikit lebih kuat saat fixed */
+        }
+
+
+        /* Wrapper untuk Search */
+        .sticky-header .search-container {
+             width: 90%; /* Mengisi lebar yang tersedia */
+             margin-bottom: 10px; /* Ruang di bawah search bar sebelum filter */
+             padding: 0;
+             border-bottom: none;
+             /* Penyesuaian Lebar Search Container */
+             max-width: 95%; /* Batasi lebar maksimal (sesuaikan jika perlu) */
+             margin-left: auto; /* Tengahkan kontainer search */
+             margin-right: auto; /* Tengahkan kontainer search */
+        }
+
+         .sticky-header .search-input-wrapper {
+             background-color: #f8f8ff;
+             /* Border kecil 1px solid, bisa diubah ketebalan dan warnanya di sini */
+             border: 2px solid #f1f3ff; /* Mengembalikan border 1px solid dengan warna abu-abu terang */
+             border-radius: 10px;
+             padding: 3px 10px; /* Padding disesuaikan */
+             transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Aktifkan transisi border-color lagi */
+             display: flex; /* Pastikan ini flex container */
+             align-items: center; /* Pusatkan item secara vertikal */
+         }
+
+        /* Adjust focus state */
+        /* Menghilangkan efek bayangan dan mengubah warna border saat input di dalamnya fokus */
+        .search-input-wrapper:focus-within {
+             /* Mengubah warna border saat fokus */
+              border-color: #bbb; /* Warna border sedikit lebih gelap saat fokus */
+              box-shadow: none; /* Hapus box-shadow saat fokus */
+         }
+
+
+        /* --- Gaya Ikon Search (Dipindahkan ke Kanan) --- */
+        .sticky-header .search-icon {
+             color: #888; /* Warna ikon search */
+             /* --- Pengaturan Order dan Margin untuk pindah ke kanan --- */
+             order: 2; /* Beri order lebih tinggi agar muncul setelah input */
+             margin-right: 0; /* Hapus margin kanan default */
+             margin-left: 10px; /* Tambahkan margin kiri untuk jarak dari input */
+             /* --- Pastikan ukuran tetap --- */
+             width: 20px; /* Sesuaikan lebar ikon jika perlu */
+             text-align: center; /* Pusatkan ikon di ruang 20px */
+             flex-shrink: 0; /* Cegah ikon menyusut */
+             /* ---------------------------------------------------------- */
+        }
+
+         /* --- Gaya Input Search (Dipindahkan ke Kiri) --- */
+         #search-input {
+            flex-grow: 1; /* Tetap mengisi ruang yang tersedia */
+            border: none; /* Menghapus border pada input itu sendiri (penting agar tidak ada border ganda) */
+            outline: none;
+            font-size: 0.7em;
+            background: transparent;
+            padding: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+             /* --- Pengaturan Order untuk pindah ke kiri --- */
+             order: 1; /* Beri order lebih rendah agar muncul sebelum ikon */
+             /* ---------------------------------------------- */
+         }
+
+        #search-input:focus {
+            outline: none;
+            box-shadow: none;
+            background: transparent;
+        }
+
+
+         #search-input::placeholder {
+             color: #aaa;
+         }
+
+
+        /* Wrapper untuk Category List */
+        .sticky-header .category-list-wrapper {
+             width: 100%;
+             overflow-x: auto;
+             -webkit-overflow-scrolling: touch;
+             scrollbar-width: none;
+             /* Penyesuaian Jarak Antara Filter dan Grid */
+             margin-bottom: 5px; /* Tambahkan ruang di bawah daftar kategori */
+        }
+
+        .sticky-header .category-list-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sticky-header .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .sticky-header .category-list li {
+             flex-shrink: 0;
+             margin-right: 15px;
+        }
+
+        .sticky-header .category-list li:last-child {
+            margin-right: 0;
+        }
+
+
+        .sticky-header .category-list a {
+            display: block;
+            padding: 7px 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9em;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-header .category-list a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+         .sticky-header .category-list a.active {
+            background-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+            font-weight: 600;
+         }
+
+        .sticky-header .category-list i {
+            display: none;
+        }
+
+        /* --- Placeholder untuk mencegah konten melompat --- */
+        .header-placeholder {
+            display: none; /* Sembunyikan secara default */
+            width: 100%;
+            box-sizing: border-box;
+             /* Tinggi diatur oleh JavaScript saat header menjadi fixed */
+        }
+
+
+        /* Gaya Container Utama */
+        .container {
+            display: flex;
+            min-height: 100vh; /* Kembali ke 100vh karena padding di handle placeholder */
+            position: relative;
+             padding-top: 0; /* Hapus padding-top dari container */
+        }
+
+        /* Gaya Konten Utama */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: #fff;
+            margin-right: 50px;
+            padding-top: 0; /* Hapus padding-top dari main-content */
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 650;
+            margin-top: 20px; /* Margin atas disesuaikan */
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+             /* scroll-margin-top tetap penting untuk smooth scrolling ke judul */
+             /* Nilai ini harus lebih besar dari tinggi header saat fixed */
+             /* Meningkatkan nilai scroll-margin-top */
+             scroll-margin-top: calc(var(--fixed-header-height, 0px) + 30px); /* Tinggi header + ruang tambahan 30px */
+        }
+
+         /* Variabel CSS untuk tinggi header saat fixed, diatur oleh JS */
+         :root {
+             --fixed-header-height: 0px;
+         }
+
+
+        .section-title.filtered {
+             color: #1F5858;
+             border-color: #536C6C;
+        }
+
+        .section-title:hover {
+            color: #536C6C;
+        }
+
+        /* Gaya Brand Grid */
+        .brand-grid {
+            display: grid;
+            padding:8px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+
+        .brand-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            text-decoration: none;
+            color: #555;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            border-color: #fff;
+        }
+
+        .brand-image-container {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             
+        }
+
+        .brand-item img {
+            width: 95%;
+            height: 95%;
+            border-radius: 10px;
+        }
+
+        .brand-text-container {
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-item p {
+            margin: 0;
+            font-size: 0.7em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Gaya Indeks Alfabet */
+        .alpha-index {
+            position: fixed;
+            right: 15px;
+            top: 50%; /* Default top, akan diatur oleh JS */
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.85em;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 5px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+             /* Gunakan JS untuk mengatur top agar tidak tumpang tindih dengan sticky header */
+        }
+
+        .alpha-index a {
+            text-decoration: none;
+            color: #666;
+            padding: 3px 5px;
+            display: block;
+            font-weight: 500;
+            transition: color 0.2s ease, font-weight 0.2s ease;
+        }
+
+        .alpha-index a:hover {
+             color: #333;
+            font-weight: 700;
+        }
+
+         .alpha-index a.active {
+             font-weight: 700;
+             color: #536C6C;
+         }
+
+
+        /* Penyesuaian responsif */
+        @media (max-width: 768px) {
+             .container {
+                 flex-direction: column;
+                 padding-top: 0;
+             }
+
+             /* Sticky header di mobile */
+             .sticky-header {
+                 padding: 8px 15px;
+             }
+
+             /* Penyesuaian Lebar Search Container Mobile */
+             .sticky-header .search-container {
+                 max-width: 100%; /* Biasanya di mobile search container full width */
+                 /* margin: auto sudah diatur di aturan universal */
+             }
+
+             .sticky-header .search-input-wrapper {
+                 padding: 6px 10px;
+             }
+
+             /* --- Gaya Ikon Search Mobile (Dipindahkan ke Kanan) --- */
+             .sticky-header .search-icon {
+                 font-size: 1em;
+                 margin-right: 0;
+                 margin-left: 8px; /* Margin kiri lebih kecil di mobile */
+             }
+
+             .sticky-header .category-list li {
+                 margin-right: 10px;
+             }
+
+              .sticky-header .category-list a {
+                 font-size: 0.85em;
+              }
+
+
+            .main-content {
+                padding: 15px;
+                margin-right: 0;
+                padding-top: 0;
+            }
+
+             .section-title {
+                 margin-bottom: 15px;
+                 padding-bottom: 5px;
+                 font-size: 1.1em;
+                 /* scroll-margin-top menyesuaikan dengan tinggi header fixed di mobile */
+                 scroll-margin-top: calc(var(--fixed-header-height, 0px) + 15px);
+             }
+
+            .alpha-index {
+                display: none;
+            }
+
+            .brand-grid {
+               grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+               gap: 15px;
+            }
+
+             .brand-image-container {
+                height: 140px;
+             }
+
+             .brand-item img {
+                 max-width: 100%;
+             }
+
+             .brand-text-container {
+                 padding: 10px;
+             }
+
+             .brand-item p {
+                 font-size: 0.8em;
+             }
+        }
+
+         /* Aturan untuk Safari di iOS agar fixed position berfungsi dengan baik */
+         @supports (-webkit-touch-callout: none) {
+             .sticky-header.is-fixed {
+                 position: -webkit-fixed; /* Gunakan -webkit-fixed jika diperlukan */
+             }
+    }
