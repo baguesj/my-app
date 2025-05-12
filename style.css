@@ -719,7 +719,7 @@ body, html {
     font-size: 0.7em;
     color: #555;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1em;
     text-align: left; /* Ulangi text-align di sini untuk kepastian */
 margin-bottom: 20px;
     /* --- Properti untuk memastikan teks wrap --- */
